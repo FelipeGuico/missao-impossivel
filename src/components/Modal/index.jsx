@@ -7,18 +7,19 @@ const Modal = (props) => {
     <div
       className="modal"
       style={{
-        opacity: 1,
-        visibility: 'visible'
+        opacity: props.show ? 1 : 0,
+        visibility: props.show ? 'visible' : 'hidden'
       }}
     >
       <div
         className="modal_content"
         style={{
-          opacity: 1,
-          visibility: 'visible'
+          opacity: props.show ? 1 : 0,
+          visibility: props.show ? 'visible' : 'hidden'
         }}
       >
         <span
+        onClick={() => props.setShow(false)}
           className='modal_close'
         >
           &times;

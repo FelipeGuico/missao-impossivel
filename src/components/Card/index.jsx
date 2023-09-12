@@ -3,6 +3,7 @@
 export const Card = (Props) =>{
 return (
   <div
+    onClick={() => Props.onClick()}
       style={{
         backgroundColor:'#303030',
         padding:20,
@@ -18,7 +19,7 @@ return (
         marginTop:10,
         textAlign:'center'
       }}
-    >{Props.texto}</h2>
+    >{Props.titulo}</h2>
   </div>
 
 );
