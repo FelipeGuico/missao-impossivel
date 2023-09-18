@@ -8,11 +8,15 @@ import Modal, { ModalBody, ModalHeader } from './components/Modal'
 import banner from './imagens/banner.jpg'
 import card1 from './imagens/card1.jpg'
 import card2 from './imagens/card2.jpg'
+
 import card3 from './imagens/card3.jpg'
 import card4 from './imagens/card4.jpg'
 
 import styles from './styles.module.css'
 import './styles/global.css'
+
+// Aqui, você importa várias bibliotecas,
+//componentes e recursos necessários para o seu aplicativo React.
 
 // npm install
 // npm run start
@@ -57,8 +61,11 @@ const requisicao = [
     "elenco": "Tom Cruise, Hayley Atwell, Ving Rhames",
     "sinopse": "No novo capítulo da franquia Missão Impossível, o agente Ethan Hunt e sua equipe partem em um novo desafio para rastrear uma arma que, se cair em mãos erradas, pode ameaçar toda a humanidade."
   },
+  // Aqui você define um array chamado 'requisicao' que contém informações sobre diferentes filmes.
+  //Cada filme é representado como um objeto com propriedades como 'id', 'titulo', 'imagem', 'data', 'direcao', 'elenco' e 'sinopse'.
 ]
 function App() {
+  // Aqui começa o componente principal 'App'.
 
   const refFilmeModal = useRef({
     titulo: '',
@@ -69,16 +76,22 @@ function App() {
   })
 
   const [showModal, setShowModal] = useState(false);
+  // Aqui, você define um estado 'showModal' para controlar a exibição do modal e utiliza o
+  //'useRef' para criar uma referência chamada 'refFilmeModal' que será usada para armazenar informações sobre o filme selecionado.
 
   function onClickCard(filme) {
     refFilmeModal.current = filme
     setShowModal(true)
   }
+  // Esta função é chamada quando um card de filme é clicado.
+  //Ela atualiza a referência 'refFilmeModal' com os dados do filme selecionado e exibe o modal.
 
   return (
     <>
       <Header />
       <img width="100%" src={banner} />
+
+      {/* Aqui, você renderiza o cabeçalho e uma imagem de banner. */}
 
       <h1
         style={{
@@ -86,6 +99,9 @@ function App() {
           textAlign: 'center'
         }}
       >Filmes</h1>
+
+      {/* Você renderiza um título 'Filmes' centralizado. */}
+
       <div
         style={{
           display: 'flex',
@@ -98,7 +114,7 @@ function App() {
           requisicao.map((filme) => {
             return (
               <Card
-              titulo={filme.titulo}
+                titulo={filme.titulo}
                 key={filme.id}
                 imagem={filme.imagem}
                 onClick={() => onClickCard(filme)}
@@ -108,6 +124,8 @@ function App() {
 
         }
 
+        {/* Aqui, você faz um mapeamento do array 'requisicao' para renderizar cards de filme usando o componente 'Card'.
+       Cada card recebe o título, uma chave única e uma função 'onClick' para lidar com cliques. */}
 
         {/*<Card imagem={card1} texto={"Missão Impossivel 1"} />
         <Card imagem={card2} texto={"Missão Impossivel 2"} />
@@ -188,6 +206,10 @@ function App() {
           </p>
         </ModalBody>
       </Modal>
+
+      {/* Aqui, você renderiza um modal com informações detalhadas sobre o filme selecionado,
+      usando a referência 'refFilmeModal' para acessar essas informações. */}
+
       <Footer />
 
     </>
@@ -197,3 +219,4 @@ function App() {
 }
 
 export default App;
+
